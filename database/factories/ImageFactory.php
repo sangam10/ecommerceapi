@@ -17,9 +17,9 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'imagable_type'=>'\App\Models\Image',
-            'imagable_id'=>fake()->numberBetween(1,80),
-            'image_url'=>'assets/images/product'. fake()->numberBetween(1,10) .'.jpg'
+            'imagable_type'=>'App\Models\Product',
+            'imagable_id'=>fake()->numberBetween(1,20),
+            'image_url'=>'product'. fake()->numberBetween(1,10) .'.jpg'
         ];
     }
 }

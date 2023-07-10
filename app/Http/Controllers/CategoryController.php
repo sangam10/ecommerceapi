@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Interfaces\ICategory;
 use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    private $category;
+    public function __construct(ICategory $category) {
+        $this->category = $category;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return $this->category->all();
     }
 
     /**

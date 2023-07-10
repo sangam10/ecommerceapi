@@ -17,7 +17,10 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id'=>fake()->numberBetween(1,20),
+            'product_id'=>fake()->numberBetween(1,20),
+            'review'=>fake()->text(),
+            'review_count'=>fake()->numberBetween(1,5)
         ];
     }
 }

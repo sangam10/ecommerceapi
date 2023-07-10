@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->decimal('review_count');
+            $table->text('review');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
             $table->timestamps();

@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Http\Resources\Product\ProductCollection;
+use App\Http\Resources\Product\ProductResource;
+use App\Interfaces\IProduct;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
+    private $product;
+    public function __construct(IProduct $product) {
+        $this->product = $product;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $products = $this->product->all();
+        return  ProductResource::collection($products);
     }
 
     /**
@@ -37,7 +45,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return new ProductResource($product);
     }
 
     /**
